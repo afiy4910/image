@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <title>Image Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
+    :root {
+      --vh: 100vh;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -13,113 +18,70 @@
       height: 100%;
       touch-action: pan-y;
     }
+
     .swiper {
       width: 100%;
-      height: 100%;
+      height: calc(var(--vh, 100vh));
     }
+
     .swiper-slide {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #000;
     }
-	.swiper-slide img {
-      max-width: 100%;
-      max-height: 100%;
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
     }
-} 
-	@media (max-width: 767px){
-    .swiper {
-        height: calc(car(--vh,100vh));
-        padding: 0px;
+
+    /* === 데스크탑 전용 스타일 === */
+    @media (min-width: 1200px) {
+      .swiper {
+        height: 90vh;
+        padding: 20px;
         box-sizing: border-box;
       }
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: start;
-      background-color: #000;
+
+      .swiper-slide img {
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 20px;
+      }
     }
-    .swiper-slide img {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
-	//모바일
-}
-
-	@media (min-width: 768px) and (max-width: 991px) {
-    .swiper {
-        height: 100vh;
-        padding: 0px;
-        box-sizing: border-box;
-      }
-
-    .swiper-slide img {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
-    // 테블릿 세로
-}
-
-	@media (min-width: 992px) and (max-width: 1199px) {
-    .swiper {
-        height: 100vh;
-        padding: 0px;
-        box-sizing: border-box;
-      }
-
-    .swiper-slide img {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
-    // 테블릿 가로
-}
-
-	@media (min-width: 1200px) {
-    .swiper {
-        height: 100vh;
-        padding: 0px;
-        box-sizing: border-box;
-      }
-
-    .swiper-slide img {
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 100%;
-    // 데스크탑 일반
-}
-	  
   </style>
 </head>
 <body>
+
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><img src="250523_임시 (1).png" /></div>
       <div class="swiper-slide"><img src="250523_임시 (2).png" /></div>
       <div class="swiper-slide"><img src="250523_임시 (3).png" /></div>
       <div class="swiper-slide"><img src="250523_임시 (4).png" /></div>
-      +<!-- 추가 이미지 -->
-	    /*=== 이미지 가이드 1920*1080px ===*/
-	    /*=== 추가이미지 주석 부분에 이미지 코드 삽입 후 이미지 호스팅 ===*/
-	    /*=== 해당부분 제외 코드 수정 x, 동작안해요 ===*/
+      <div class="swiper-slide"><img src="250523_임시 (5).png" /></div>
     </div>
-
+  </div>
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-      function setViewportHeight() {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    function setViewportHeight() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
-	  
+
     window.addEventListener('resize', setViewportHeight);
     window.addEventListener('orientationchange', setViewportHeight);
     window.addEventListener('load', setViewportHeight);
     setViewportHeight();
 
-      const swiper = new Swiper('.swiper', {
-        direction: 'horizontal',
-        loop: false,
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: false,
     });
   </script>
 </body>
