@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Image Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
     :root {
@@ -13,23 +13,14 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       background-color: #000;
       overflow: hidden;
-      height: 100%;
-    }
-
-    body {
-      padding-top: env(safe-area-inset-top);
-      padding-bottom: env(safe-area-inset-bottom);
     }
 
     .swiper {
       width: 100%;
-      height: calc(var(--vh, 100vh) - 60px);
-    }
-
-    .swiper-wrapper {
-      display: flex;
+      height: calc(var(--vh, 100vh) - 60px); /* 로고 높이만큼 제외 */
     }
 
     .swiper-slide {
@@ -46,6 +37,19 @@
       max-width: 100%;
       border-radius: 10px;
     }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      background-color: #000;
+    }
+
+    .logo-container img {
+      width: 120px;
+      height: 40px;
+    }
   </style>
 </head>
 <body>
@@ -61,18 +65,22 @@
     </div>
   </div>
 
+  <!-- 로고 -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo" />
+  </div>
+
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    // 안전한 화면 높이 계산
+    // 모바일 주소창 문제 대응
     function setViewportHeight() {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', ${vh}px);
     }
 
     window.addEventListener('resize', setViewportHeight);
     window.addEventListener('orientationchange', setViewportHeight);
     window.addEventListener('load', setViewportHeight);
-    setViewportHeight(); // 최초 실행
 
     const swiper = new Swiper('.swiper', {
       direction: 'horizontal',
