@@ -62,6 +62,12 @@
         const vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
+	  
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+    window.addEventListener('load', setViewportHeight);
+    setViewportHeight();
+
       const swiper = new Swiper('.swiper', {
         direction: 'horizontal',
         loop: false,
