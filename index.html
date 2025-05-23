@@ -15,7 +15,7 @@
     }
     .swiper {
       width: 100%;
-      height: 100vh;
+      height: calc(var(--vh, 100vh));
     }
     .swiper-slide {
       display: flex;
@@ -27,9 +27,27 @@
       max-width: 100%;
       max-height: 100%;
     }
-	} 
-	  
-	@media (min-width: 768px) {
+} 
+	@media (max-width: 767px){
+    .swiper {
+        height: calc(car(--vh,100vh));
+        padding: 0px;
+        box-sizing: border-box;
+      }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      background-color: #000;
+    }
+    .swiper-slide img {
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+	//모바일
+}
+
+	@media (min-width: 768px) and (max-width: 991px) {
     .swiper {
         height: 100vh;
         padding: 0px;
@@ -40,8 +58,36 @@
         object-fit: contain;
         max-width: 100%;
         max-height: 100%;
+    // 테블릿 세로
+}
+
+	@media (min-width: 992px) and (max-width: 1199px) {
+    .swiper {
+        height: 100vh;
+        padding: 0px;
+        box-sizing: border-box;
       }
-    }
+
+    .swiper-slide img {
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+    // 테블릿 가로
+}
+
+	@media (min-width: 1200px) {
+    .swiper {
+        height: 100vh;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+    .swiper-slide img {
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+    // 데스크탑 일반
+}
 	  
   </style>
 </head>
