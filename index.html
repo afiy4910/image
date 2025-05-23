@@ -20,7 +20,7 @@
 
     .swiper {
       width: 100%;
-      height: calc(var(--vh, 100vh) - 60px);
+      height: 100% /* 로고 공간 제외 */
     }
 
     .swiper-slide {
@@ -36,19 +36,17 @@
       object-fit: contain;
       max-height: none;
       max-width: 100%;
-      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  
+
   <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide"><img src="250523_임시 (1).png" /></div>
       <div class="swiper-slide"><img src="250523_임시 (2).png" /></div>
       <div class="swiper-slide"><img src="250523_임시 (3).png" /></div>
       <div class="swiper-slide"><img src="250523_임시 (4).png" /></div>
-      <div class="swiper-slide"><img src="250523_임시 (5).png" /></div>
     </div>
   </div>
 
