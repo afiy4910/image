@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>
+    :root {
+      --vh: 100vh;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .swiper {
+      width: 100%;
+      height: calc(var(--vh, 100vh) - 60px); /* 로고 공간 제외 */
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+    }
+
+    .swiper-slide img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      max-height: none;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      background-color: #000;
+    }
+
+    .logo-container img {
+      width: 120px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 슬라이더 -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="250523_임시 (1).png" /></div>
+      <div class="swiper-slide"><img src="250523_임시 (2).png" /></div>
+      <div class="swiper-slide"><img src="250523_임시 (3).png" /></div>
+      <div class="swiper-slide"><img src="250523_임시 (4).png" /></div>
+      <div class="swiper-slide"><img src="250523_임시 (5).png" /></div>
+    </div>
+  </div>
+
+  <!-- 로고 -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo" />
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // 모바일 주소창 문제 해결용 높이 계산
+    function setViewportHeight() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+    window.addEventListener('load', setViewportHeight);
+
+    // Swiper 초기화
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: false,
+    });
+  </script>
+</body>
+</html>
