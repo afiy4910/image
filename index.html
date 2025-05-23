@@ -76,9 +76,13 @@
     window.addEventListener('load', setViewportHeight);
     setViewportHeight();
 
-    const swiper = new Swiper('.swiper', {
-      direction: 'horizontal',
-      loop: false,
+document.addEventListener('DOMContentLoaded', function () {
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
+    loop: false,
+  });
+});
+
     });
   </script>
 </body>
