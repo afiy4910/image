@@ -19,6 +19,9 @@
       touch-action: pan-y;
     }
 
+    body {
+      padding: 0 !important;
+
     .swiper {
       width: 100%;
       height: calc(var(--vh, 100vh));
@@ -76,13 +79,9 @@
     window.addEventListener('load', setViewportHeight);
     setViewportHeight();
 
-document.addEventListener('DOMContentLoaded', function () {
-  const swiper = new Swiper('.swiper', {
-    direction: 'horizontal',
-    loop: false,
-  });
-});
-
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: false,
     });
   </script>
 </body>
